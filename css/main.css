@@ -2,8 +2,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Work+Sans&display=swap');
 @import './fonts/Gilroy/stylesheet.css';
 
-/* font-family: 'Work Sans', sans-serif; */
-/* font-family: 'Gilroy', sans-serif; */
+html {
+  scroll-behavior: smooth;
+}
 
 body {
   font-family: 'Gilroy', sans-serif;
@@ -17,12 +18,22 @@ body {
 }
 
 .container-right {
-  padding-left: calc((100% - 1750px) / 2 + 15px); /* от полной ширины экрана отнимает ширину контейнера (1750px) делим на 2 получаем ширину отступа +15px это padding у обычного контейнера */
   overflow-x: hidden;
+  padding-left: calc((100% - 1750px) / 2 + 15px); /* от полной ширины экрана отнимает ширину контейнера (1750px) делим на 2 получаем ширину отступа +15px это padding у обычного контейнера */
+}
+
+@media (max-width:1749px){
+  .container-right {
+    padding-left: 15px;
+  }
 }
 
 .none {
   display: none;
+}
+
+.hidden {
+  visibility: hidden;
 }
 
 .btn {
@@ -90,6 +101,7 @@ body {
 /* header */
 
 .header {
+  position: relative;
   min-height: 100vh;
   background-color: #e1edf2;
   background-image: url(./../img/header/header-bg.jpg);
@@ -116,6 +128,10 @@ body {
 
 }
 
+.nav__btn {
+  display: none;
+}
+
 .link {
   font-size: 20px;
   font-weight: 800;
@@ -123,6 +139,10 @@ body {
 }
 
 /* header content */
+
+.header__content-mobile {
+  display: none;
+}
 
 .header__content {
   max-width: 1060px;
@@ -142,10 +162,18 @@ body {
 
   font-weight: 400;
   font-size: 34px;
+  line-height: 1.57;
   letter-spacing: -0.02em;
   color: #1F1F1F;
 
   opacity: 0.7;
+}
+
+.header__arrows {
+  position: absolute;
+  bottom: 59px;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 /* Case-studies */
@@ -177,17 +205,6 @@ body {
   color: #1F1F1F;
   opacity: 0.7;
 }
-
-  /* Slider */
-
-.slider {
-
-}
-
-.slider__item {
-
-}
-
   /* Slide */
   
 .slide {
@@ -223,23 +240,21 @@ body {
   margin-bottom: 78px;
 }
 
-.about__content {
-}
-
 /* Video */
 
 .video {
   position: relative;
 }
 
-.video-overlay:after{
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(17, 68, 85, 0.5);
+.video-overlay::after {
+	content: '';
+	position: absolute;
+	z-index: 8;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(17, 68, 85, 0.5);
 }
 
 .video__btn {
@@ -247,18 +262,21 @@ body {
   z-index: 9;
   top: 50%;
   left: 50%;
-  transform:translate(-50%, -50%);
+  transform: translate(-50%, -50%);
 }
 
 .video__picture {
+  position: relative;
+  z-index: 7;
+}
+
+.video__object{
   position: absolute;
   left: 0;
   top: 0;
 
-}
-
-.video_object{
   width: 100%;
+  height: 100%;
   vertical-align: top;
 }
 
@@ -290,10 +308,119 @@ body {
   column-gap: 104px;
 }
 
-.footer__email {
-}
-
 .footer__socials {
   display: flex;
   column-gap: 26px;
+}
+
+/* Mobile nav */
+
+.mobile-nav {
+  position: fixed;
+  z-index: 99;
+  left: 0;
+  top: 0;
+  width: 100%;
+  min-height: 100vh;
+  padding: 50px 24px 32px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  background-color: #fff;
+
+}
+
+.mobile-nav__header {
+  display: flex;
+  justify-content: space-between;
+  /* margin-bottom: 66px; */
+}
+
+.mobile-nav__logo {
+  height: 20px;
+}
+
+.mobile-nav__btn {
+}
+
+.mobile-list {
+  margin-bottom: 60px;
+  font-size: 40px;
+  color: #1F1F1F;
+  font-weight: 800;
+  line-height: 56px;
+}
+
+.mobile-list a {
+  color: #1F1F1F;
+}
+
+.mobile-contacts {
+  /* margin-bottom: 80px; */
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.mobile-contacts a {
+  font-style: normal;
+  font-weight: medium;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0.06em;
+  color: rgba(31, 31, 31, 0.7);
+}
+
+.mobile-contacts__title {
+  margin-bottom: 32px;
+  font-size: 24px;
+  font-weight: 800;
+  color: #1F1F1F;
+}
+
+.mobile-contacts__email {
+  display: block;
+  margin-bottom: 16px;
+}
+
+.mobile-contacts__phone {
+  display: block;
+  margin-bottom: 16px;
+}
+
+.mobile-contacts__address {
+  font-style: normal;
+  font-weight: medium;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0.06em;
+  color: rgba(31, 31, 31, 0.7);
+}
+
+.mobile-footer {
+  padding: 32px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+a.mobile-footer__email {
+  display: block;
+  color: rgba(73, 42, 211, 0.7);
+  margin-bottom: 16px;
+}
+
+.mobile-socials {
+  margin-bottom: 32px;
+}
+
+.mobile-socials img {
+  width: 24px;
+}
+
+.mobile-footer__copyright {
+  font-size: 14px;
+  letter-spacing: 0.08em;
+  color: rgba(31, 31, 31, 0.7);
 }
