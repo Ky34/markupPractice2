@@ -11,7 +11,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.css" integrity="sha512-OTcub78R3msOCtY3Tc6FzeDJ8N9qvQn1Ph49ou13xgA9VsH9+LRxoFU6EqLhW4+PKRfU+/HReXmSZXHEkpYoOA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
-  <header class="header none">
+  <header class="header">
     <div class="container">
       <div class="header__top">
         <nav class="nav">
@@ -22,7 +22,7 @@
             <li><a href="#!" class="link">About us</a></li>
             <li><a href="#!" class="btn">Let’s Talk</a></li>
           </ul>
-          <button class="nav__btn">
+          <button class="nav__btn" id="openMobileNav">
             <img src="./img/icons/mobile-nav-btn.svg" alt="Mobile nav">
           </button>
         </nav>
@@ -49,7 +49,7 @@
 
     </div>
   </header>
-  <main class="none" id="main">
+  <main id="main">
     <section class="case-studies">
       <div class="container">
         <div class="case-studies__title">
@@ -112,7 +112,7 @@
       </div>
     </section>
   </main>
-  <footer class="footer none">
+  <footer class="footer">
     <div class="container">
       <div class="footer__row">
         <div class="footer__copyright">Copyright © 2020 Invoriem</div>
@@ -129,12 +129,12 @@
     </div>
   </footer>
   
-  <section class="mobile-nav">
+  <section class="mobile-nav none" id="mobileNav">
     <div class="mobile-nav__header">
       <a href="#">
         <img class="mobile-nav__logo" src="./img/logo.svg" alt="logo">
       </a>
-      <button class="mobile-nav__btn">
+      <button class="mobile-nav__btn" id="closeMobileNav">
         <img src="./img/icons/mobile-nav-btn.svg" alt="close nav">
       </button>
     </div>
